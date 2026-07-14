@@ -5,7 +5,7 @@ function Navbar({ logout }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScroll(window.scrollY > 40);
+      setScroll(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,16 +19,16 @@ function Navbar({ logout }) {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scroll
-          ? "bg-white/90 backdrop-blur-lg shadow-lg py-3"
-          : "bg-black/20 backdrop-blur-md py-5"
+          ? "bg-white/90 backdrop-blur-md shadow-lg"
+          : "bg-black/20 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
 
         {/* Logo */}
         <a
           href="#home"
-          className={`text-3xl font-bold transition ${
+          className={`text-3xl font-bold ${
             scroll ? "text-green-700" : "text-white"
           }`}
         >
@@ -37,14 +37,14 @@ function Navbar({ logout }) {
 
         {/* Menu */}
         <ul
-          className={`hidden md:flex items-center gap-10 text-lg font-semibold ${
+          className={`hidden md:flex items-center gap-10 font-semibold text-lg ${
             scroll ? "text-gray-700" : "text-white"
           }`}
         >
           <li>
             <a
               href="#home"
-              className="hover:text-green-500 transition"
+              className="hover:text-green-600 transition"
             >
               หน้าแรก
             </a>
@@ -53,7 +53,7 @@ function Navbar({ logout }) {
           <li>
             <a
               href="#search"
-              className="hover:text-green-500 transition"
+              className="hover:text-green-600 transition"
             >
               ค้นหา
             </a>
@@ -62,7 +62,7 @@ function Navbar({ logout }) {
           <li>
             <a
               href="#places"
-              className="hover:text-green-500 transition"
+              className="hover:text-green-600 transition"
             >
               สถานที่
             </a>
@@ -71,20 +71,33 @@ function Navbar({ logout }) {
           <li>
             <a
               href="#contact"
-              className="hover:text-green-500 transition"
+              className="hover:text-green-600 transition"
             >
               ติดต่อ
             </a>
           </li>
         </ul>
 
-        {/* Logout */}
-        <button
-          onClick={logout}
-          className="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg transition duration-300 hover:scale-105"
-        >
-          Logout
-        </button>
+        {/* Right */}
+        <div className="flex items-center gap-4">
+
+          <span
+            className={`hidden md:block ${
+              scroll ? "text-gray-700" : "text-white"
+            }`}
+          >
+            👋 ยินดีต้อนรับ
+          </span>
+
+          <button
+            onClick={logout}
+            className="rounded-full bg-red-500 px-5 py-2 font-semibold text-white shadow-md transition hover:-translate-y-1 hover:bg-red-600"
+          >
+            Logout
+          </button>
+
+        </div>
+
       </div>
     </nav>
   );

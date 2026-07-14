@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -12,64 +11,66 @@ import Login from "./components/Login";
 import { places } from "./data/places";
 
 function App() {
-  // ตรวจสอบว่า Login แล้วหรือยัง
   const [isLogin, setIsLogin] = useState(
     localStorage.getItem("login") === "true"
   );
 
-  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Loading Screen
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1800);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Login
-  const handleLogin = () => {
+  const login = () => {
     localStorage.setItem("login", "true");
     setIsLogin(true);
   };
 
-  // Logout
-  const handleLogout = () => {
+  const logout = () => {
     localStorage.removeItem("login");
     setIsLogin(false);
   };
 
-  // Loading
-  if (loading) {
-    return (
-      <div className="loading-screen">
-        <div className="loader"></div>
-
-        <h1 className="loading-title">
-          Travel Saraburi
-        </h1>
-
-        <p>กำลังโหลดเว็บไซต์...</p>
-      </div>
-    );
-  }
-
-  // Login ก่อนเข้าเว็บ
-  if (!isLogin) {
-    return <Login onLogin={handleLogin} />;
-  }
-
-  // ค้นหา
   const filteredPlaces = places.filter((place) =>
     place.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  return (
-    <div>
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-gradient-to-br from-green-800 via-green-600 to-green-400">
 
-      <Navbar logout={handleLogout} />
+        <div className="text-center">
+
+          <div className="mx-auto h-20 w-20 animate-spin rounded-full border-8 border-white/30 border-t-white"></div>
+
+          <h1 className="mt-8 text-5xl font-extrabold text-white">
+            Travel Saraburi
+          </h1>
+
+          <p className="mt-4 text-white/80">
+            Loading...
+          </p>
+
+        </div>
+
+      </div>
+    );
+  }
+
+  if (!isLogin) {
+    return <Login onLogin={login} />;
+  }
+
+  return (
+    <div className="bg-slate-50">
+
+      <Navbar logout={logout} />
 
       <Hero />
 
@@ -78,9 +79,7 @@ function App() {
         setSearch={setSearch}
       />
 
-      <Places
-        places={filteredPlaces}
-      />
+      <Places places={filteredPlaces} />
 
       <Contact />
 

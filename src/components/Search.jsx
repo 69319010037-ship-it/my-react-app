@@ -2,71 +2,80 @@ function Search({ search, setSearch }) {
   return (
     <section
       id="search"
-      className="py-20 bg-gradient-to-b from-green-50 to-white"
+      className="bg-gradient-to-b from-white to-green-50 py-20"
     >
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="mx-auto max-w-6xl px-6">
 
         {/* Title */}
-        <div className="text-center mb-12">
+        <div className="text-center">
 
-          <h2 className="text-4xl md:text-5xl font-bold text-green-700">
-            🔍 ค้นหาสถานที่ท่องเที่ยว
+          <span className="rounded-full bg-green-100 px-5 py-2 text-sm font-semibold text-green-700">
+            🔍 Search
+          </span>
+
+          <h2 className="mt-6 text-4xl font-bold text-gray-800 md:text-5xl">
+            ค้นหาสถานที่ท่องเที่ยว
           </h2>
 
-          <p className="text-gray-600 mt-4 text-lg">
-            พิมพ์ชื่อสถานที่ที่ต้องการค้นหา เช่น น้ำตก, ฟาร์ม, สวน
+          <p className="mx-auto mt-4 max-w-2xl text-gray-500">
+            ค้นหาสถานที่ที่คุณต้องการได้ทันที
+            เช่น น้ำตก ฟาร์ม หรือสวนดอกไม้
           </p>
 
         </div>
 
         {/* Search Box */}
-        <div className="relative max-w-3xl mx-auto">
+        <div className="mx-auto mt-12 max-w-3xl">
 
-          {/* Search Icon */}
-          <span className="absolute left-6 top-1/2 -translate-y-1/2 text-2xl">
-            🔍
-          </span>
+          <div className="flex items-center rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-xl transition duration-300 focus-within:border-green-500 focus-within:shadow-2xl">
 
-          <input
-            type="text"
-            value={search}
-            placeholder="ค้นหาสถานที่..."
-            onChange={(e) => setSearch(e.target.value)}
-            className="
-              w-full
-              pl-16
-              pr-5
-              py-5
-              rounded-full
-              bg-white
-              border-2
-              border-green-200
-              shadow-xl
-              outline-none
-              text-lg
-              transition
-              duration-300
-              focus:border-green-500
-              focus:ring-4
-              focus:ring-green-200
-            "
-          />
+            <span className="mr-4 text-2xl">
+              🔍
+            </span>
+
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="ค้นหาสถานที่..."
+              className="w-full border-none bg-transparent text-lg outline-none"
+            />
+
+            {search !== "" && (
+              <button
+                onClick={() => setSearch("")}
+                className="rounded-full bg-red-500 px-4 py-2 text-white transition hover:bg-red-600"
+              >
+                ✕
+              </button>
+            )}
+
+          </div>
 
         </div>
 
         {/* Search Status */}
-        {search && (
-          <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
 
-            <span className="inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full font-semibold shadow">
-              กำลังค้นหา :
-              <span className="ml-2 text-green-900">
-                {search}
+          {search === "" ? (
+            <p className="text-gray-500">
+              พิมพ์ชื่อสถานที่เพื่อเริ่มค้นหา
+            </p>
+          ) : (
+            <div className="inline-flex items-center gap-3 rounded-full bg-green-100 px-6 py-3">
+
+              <span className="text-green-700">
+                ผลการค้นหา :
               </span>
-            </span>
 
-          </div>
-        )}
+              <strong className="text-green-900">
+                {search}
+              </strong>
+
+            </div>
+          )}
+
+        </div>
 
       </div>
     </section>

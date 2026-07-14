@@ -1,5 +1,7 @@
 function Footer() {
-  const scrollToTop = () => {
+  const year = new Date().getFullYear();
+
+  const scrollTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -9,92 +11,101 @@ function Footer() {
   return (
     <footer className="bg-green-900 text-white">
 
-      {/* Top */}
-      <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
+      {/* Main */}
+      <div className="mx-auto max-w-7xl px-6 py-16">
 
-        {/* Website */}
-        <div>
-          <h2 className="text-3xl font-bold">
-            🌿 Travel Saraburi
-          </h2>
+        <div className="grid gap-10 md:grid-cols-3">
 
-          <p className="mt-4 text-green-100 leading-7">
-            เว็บไซต์แนะนำสถานที่ท่องเที่ยวในจังหวัดสระบุรี
-            รวบรวมแหล่งท่องเที่ยวธรรมชาติ คาเฟ่
-            และสถานที่พักผ่อนยอดนิยม
-            เพื่อช่วยให้ทุกการเดินทางของคุณง่ายขึ้น
-          </p>
-        </div>
+          {/* Website */}
+          <div>
 
-        {/* Menu */}
-        <div>
-          <h3 className="text-2xl font-bold mb-4">
-            เมนู
-          </h3>
+            <h2 className="text-3xl font-bold">
+              🌿 Travel Saraburi
+            </h2>
 
-          <ul className="space-y-3">
-
-            <li>
-              <a
-                href="#home"
-                className="hover:text-green-300 transition"
-              >
-                หน้าแรก
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#search"
-                className="hover:text-green-300 transition"
-              >
-                ค้นหา
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#places"
-                className="hover:text-green-300 transition"
-              >
-                สถานที่
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#contact"
-                className="hover:text-green-300 transition"
-              >
-                ติดต่อ
-              </a>
-            </li>
-
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h3 className="text-2xl font-bold mb-4">
-            ติดต่อ
-          </h3>
-
-          <div className="space-y-3 text-green-100">
-
-            <p>📧 69319010037@sbt.ac.th</p>
-
-            <p>📱 096-941-2522</p>
-
-            <p>🏫 วิทยาลัยเทคนิคสระบุรี</p>
+            <p className="mt-5 leading-8 text-green-100">
+              เว็บไซต์แนะนำสถานที่ท่องเที่ยวจังหวัดสระบุรี
+              รวบรวมสถานที่ท่องเที่ยวธรรมชาติ คาเฟ่
+              และจุดเช็กอินยอดนิยม
+              เพื่อให้ทุกการเดินทางของคุณง่ายและสะดวกมากยิ่งขึ้น
+            </p>
 
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="mt-8 bg-white text-green-700 font-bold px-6 py-3 rounded-full hover:bg-green-100 transition hover:scale-105"
-          >
-            ⬆ กลับด้านบน
-          </button>
+          {/* Menu */}
+          <div>
+
+            <h3 className="mb-5 text-2xl font-bold">
+              เมนู
+            </h3>
+
+            <ul className="space-y-4">
+
+              <li>
+                <a
+                  href="#home"
+                  className="transition hover:text-green-300"
+                >
+                  🏠 หน้าแรก
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#search"
+                  className="transition hover:text-green-300"
+                >
+                  🔍 ค้นหา
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#places"
+                  className="transition hover:text-green-300"
+                >
+                  📍 สถานที่
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#contact"
+                  className="transition hover:text-green-300"
+                >
+                  📞 ติดต่อ
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+          {/* Contact */}
+          <div>
+
+            <h3 className="mb-5 text-2xl font-bold">
+              ติดต่อ
+            </h3>
+
+            <div className="space-y-3 text-green-100">
+
+              <p>📧 69319010037@sbt.ac.th</p>
+
+              <p>📱 096-941-2522</p>
+
+              <p>🏫 วิทยาลัยเทคนิคสระบุรี</p>
+
+            </div>
+
+            <button
+              onClick={scrollTop}
+              className="mt-8 rounded-full bg-white px-6 py-3 font-bold text-green-700 shadow-lg transition hover:-translate-y-1 hover:bg-green-100"
+            >
+              ⬆ กลับด้านบน
+            </button>
+
+          </div>
 
         </div>
 
@@ -103,14 +114,14 @@ function Footer() {
       {/* Bottom */}
       <div className="border-t border-green-700">
 
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-center md:flex-row">
 
-          <p className="text-green-200 text-center md:text-left">
-            © 2026 Travel Saraburi | Developed with React + Vite + Tailwind CSS
+          <p className="text-green-200">
+            © {year} Travel Saraburi
           </p>
 
-          <p className="text-green-300 mt-3 md:mt-0">
-            Made with by ภาณุ องธนวัฒน์
+          <p className="text-green-300">
+            พัฒนาโดย ภาณุ องธนวัฒน์ | React + Vite + Tailwind CSS
           </p>
 
         </div>

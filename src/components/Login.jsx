@@ -12,76 +12,85 @@ function Login({ onLogin }) {
       setError("");
       onLogin();
     } else {
-      setError("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+      setError("❌ Username หรือ Password ไม่ถูกต้อง");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-300 via-green-500 to-green-700 flex items-center justify-center p-5">
-      <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl p-8">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-700 via-green-600 to-lime-500">
+
+      {/* Background Circles */}
+      <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-white/10 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-green-900/20 blur-3xl"></div>
+
+      {/* Login Card */}
+      <div className="z-10 w-full max-w-md rounded-3xl border border-white/20 bg-white/15 p-10 shadow-2xl backdrop-blur-xl">
 
         {/* Logo */}
         <div className="text-center">
-          <div className="text-6xl mb-3">🌿</div>
 
-          <h1 className="text-4xl font-bold text-green-700">
+          <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white/20 text-5xl shadow-lg">
+            🌿
+          </div>
+
+          <h1 className="mt-6 text-4xl font-extrabold text-white">
             Travel Saraburi
           </h1>
 
-          <p className="text-gray-500 mt-2">
-            ระบบแนะนำสถานที่ท่องเที่ยวจังหวัดสระบุรี
+          <p className="mt-2 text-white/80">
+            ระบบแนะนำสถานที่ท่องเที่ยว
           </p>
+
         </div>
 
         {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="mt-8 space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+
           <div>
-            <label className="font-semibold text-gray-700">
+            <label className="mb-2 block font-semibold text-white">
               Username
             </label>
 
             <input
               type="text"
-              placeholder="กรอก Username"
+              placeholder="Enter username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full mt-2 border rounded-xl p-3 outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-white placeholder-white/70 outline-none transition focus:border-white focus:bg-white/30"
             />
           </div>
 
           <div>
-            <label className="font-semibold text-gray-700">
+            <label className="mb-2 block font-semibold text-white">
               Password
             </label>
 
             <input
               type="password"
-              placeholder="กรอก Password"
+              placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-2 border rounded-xl p-3 outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-white placeholder-white/70 outline-none transition focus:border-white focus:bg-white/30"
             />
           </div>
 
           {error && (
-            <div className="bg-red-100 border border-red-300 text-red-600 rounded-xl p-3">
+            <div className="rounded-xl bg-red-500/80 p-3 text-center text-white">
               {error}
             </div>
           )}
 
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition duration-300"
+            className="w-full rounded-xl bg-white py-3 text-lg font-bold text-green-700 shadow-lg transition hover:-translate-y-1 hover:bg-green-100"
           >
             Login
           </button>
+
         </form>
-        <p className="text-center text-gray-400 text-sm mt-6">
+        <div className="mt-8 text-center text-sm text-white/70">
           © 2026 Travel Saraburi
-        </p>
+        </div>
 
       </div>
     </div>
