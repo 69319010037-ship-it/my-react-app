@@ -38,7 +38,7 @@ function Contact() {
             />
 
             <h3 className="mt-6 text-3xl font-bold">
-              ภาณุ องธนวัฒน์
+              ภาณุ องค์ธนาวัฒน์
             </h3>
 
             <p className="mt-2 text-green-100">
