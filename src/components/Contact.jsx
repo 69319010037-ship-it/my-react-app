@@ -32,11 +32,10 @@ function Contact() {
           <div className="flex flex-col items-center justify-center bg-gradient-to-br from-green-700 to-green-500 p-10 text-white md:w-1/3">
 
             <img
-              src={profileImage}
-              alt="Profile"
-              className="h-48 w-48 rounded-full border-4 border-white object-cover shadow-xl"
+            src={profileImage}
+            alt="Profile"
+            className="w-48 h-48 rounded-full border-4 border-white shadow-xl object-cover flex-shrink-0"
             />
-
             <h3 className="mt-6 text-3xl font-bold">
               ภาณุ องค์ธนาวัฒน์
             </h3>
@@ -44,7 +43,6 @@ function Contact() {
             <p className="mt-2 text-green-100">
               นักศึกษาเทคโนโลยีสารสนเทศ
             </p>
-
           </div>
 
           {/* Right */}

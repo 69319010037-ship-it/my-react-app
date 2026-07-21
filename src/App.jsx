@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Search from "./components/Search";
@@ -7,9 +6,7 @@ import Places from "./components/Places";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-
 import { places } from "./data/places";
-
 function App() {
   const [isLogin, setIsLogin] = useState(
     localStorage.getItem("login") === "true"

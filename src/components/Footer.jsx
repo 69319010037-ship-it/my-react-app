@@ -121,7 +121,7 @@ function Footer() {
           </p>
 
           <p className="text-green-300">
-            พัฒนาโดย ภาณุ องธนวัฒน์ | React + Vite + Tailwind CSS
+            พัฒนาโดย ภาณุ องค์ธนาวัฒน์ | React + Vite + Tailwind CSS
           </p>
 
         </div>
